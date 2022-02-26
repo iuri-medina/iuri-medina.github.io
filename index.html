@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de gorjetas</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section id="container">
+        <h1 class="title">Calculadora de gorjetas</h1>
+        <form id="tips-form">
+            <div class="form-group">
+                <label for="bill">Quanto ficou a conta?</label>
+                <input type="number" name="bill" id="bill" placeholder="R$ 100" required>
+            </div>
+            <div class="form-group">
+                <label for="serviceQual">Como foi seu serviço?</label>
+                <select id="serviceQual" required>
+                    <option value="" selected disabled>-- Escolha sua opção</option>
+                    <option value="0.3">30% - Incrível</option>
+                    <option value="0.2">20% - Ótimo</option>
+                    <option value="0.15">15% - Bom</option>
+                    <option value="0.1">10% - Ruim</option>
+                    <option value="0.05">5% - Péssimo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="peapleQuant">Quantas pessoas vão dividir a conta?</label>
+                <input type="number" name="peapleQuant" id="peapleQuant" placeholder="2" required>
+            </div>
+            <button type="submit">Calcular</button>
+            <section id="tip-field">
+                <h2>O valor da gorjeta foi de: </h2>
+                <section id="total-tip"></section>
+                <span id="tip-currency">R$</span>
+                <span id="divide-tip">cada</span>
+            </section>
+        </form>
+    </section>
+    <script>
+        let totalTip = document.getElementById('total-tip');
+        let tipField = document.getElementById('tip-field');
+        tipField.style.display = 'none';
+
+        function calcTip(event) {
+            event.preventDefault();
+            let bill = document.getElementById('bill').value;
+            let serviceQual = document.getElementById('serviceQual').value;
+            let peapleQuant = document.getElementById('peapleQuant').value;
+            
+            if(peapleQuant =="" | peapleQuant <= 1) {
+                peapleQuant = 1;
+                document.getElementById('divide-tip').style.display = 'none';
+            } else {
+                document.getElementById('divide-tip').style.display = 'block';
+            }
+
+            let total = (bill * serviceQual) / peapleQuant;
+            total = total.toFixed(2);
+            totalTip.innerHTML = total;
+            tipField.style.display = 'block';
+        };
+
+        document.getElementById('tips-form').addEventListener("submit", calcTip);
+    </script>
+</body>
+</html>

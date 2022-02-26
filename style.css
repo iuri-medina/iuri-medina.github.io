@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    
+}
+
+body {
+    background-color: #272727;
+}
+
+#container {
+    width: 800px; height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1.title {
+    color: #fff;
+    font-size: 2em;
+    position: relative;
+    top: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    align-items: center;
+    padding: 150px 80px;
+    padding-bottom: 50px;
+    color: #fff;
+    border: solid 2px #c00202;
+    box-shadow: 0px 3px 8px rgba(0,0,0,.7)
+} 
+
+label, input {
+    display: block;
+
+}
+.form-group {
+    height: 80px; width: 300px;
+    font-size: 1.5em; 
+    margin-bottom: 20px;
+}
+.form-group input, select {
+    height: 30px; width: 250px;
+    border: none;
+    border-bottom: 1px solid #808080;
+    background-color: #272727;
+    color: #fff; outline: none;
+    padding-left: 10px;
+}
+
+.form-group input:focus, select:focus {
+    border-bottom: 1px solid #c00202;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+form button {
+    width: 300px; height: 50px;
+    background-color: #c00202;
+    margin-top: 25px; color: #fff;
+    margin-bottom: 30px;
+    transition: ease 0.3s all;
+    border: none; outline: none;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #a70d0d;
+}
+
+form button:active {
+    transition: none;
+    background-color: #7e0000;
+}
+
+#total-tip {
+    text-align: center;
+    width: 300px; height: 60px;
+    padding: 15px 0 0 0;
+    font-size: 2em;
+}
+
+#tip-currency {
+    position: relative;
+    top: -50px; left: 80px;
+}
+
+#divide-tip {
+    position: relative;
+    right: -210px; top: -65px;
+    display: none;
+}
